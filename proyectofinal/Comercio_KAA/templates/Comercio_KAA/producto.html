@@ -1,0 +1,49 @@
+{% extends "Comercio_KAA\layout.html" %}
+{% load static %}
+
+    {% block title %} {{productodet.titulo}} {% endblock %}
+
+    {% block btnes %}
+
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                LOGIN
+            </a>
+        </li>
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                REGISTRO
+            </a>
+        </li>
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                CARRITO
+            </a>
+        </li>
+
+    {% endblock %}
+
+
+    {% block cuerpo %}
+
+    <section class="parte-medio">
+        <div class="container-fluid cartitas px-5 py-3" style="max-width: 1000px;">
+            <div class="container-fluid parte-arriba" style="padding-left: 5%;">
+                <h2>{{productodet.titulo}}</h3>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2">
+                <div class="col">
+                    <img src="{{productodet.imagen.url}}" alt="" class="float-start pl-2 py-3 w-100" style="max-width: 500px;">
+                </div>
+                <div class="col parte-medio">                    
+                    <h3 class="parte-arriba" style="align-self: center">Categoría: {{productodet.categoria}}</h3>
+                    <p class="parte-medio">{{productodet.descripcion}}</p>
+                    <h4 class="parte-medio"> Precio: ${{productodet.precio}} </h4>
+                    <div class="text-center" style="align-self: flex-end">
+                        <a href="#" class="btn letra-boton boton">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section>
+    {% endblock %}

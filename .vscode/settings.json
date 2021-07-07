@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "proyecto_final\\Scripts\\python.exe",
+    "python.analysis.diagnosticSeverityOverrides":{
+        "reportMissingImports": "none"
+    },
+    "editor.linkedEditing": true
+}

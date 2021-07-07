@@ -1,0 +1,78 @@
+{% extends "Comercio_KAA\layout.html" %}
+{% load static %}
+
+    {% block title %} Home {% endblock %}
+
+    {% block btnes %}
+
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                LOGIN
+            </a>
+        </li>
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                REGISTRO
+            </a>
+        </li>
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                CARRITO
+            </a>
+        </li>
+
+    {% endblock %}
+
+    {% block cuerpo %}
+    
+    <section class="parte-arriba">
+        <div class="container-fluid" style="max-width: 1200px;">
+            <h3> DESCUBRE NUESTROS PRODUCTOS: </h3>
+        </div>
+    </section>
+
+    
+
+    <section class="parte-medio">        
+        <div class="row row-cols-1 row-cols-md-3 " style="max-width: 1200px; align-items: stretch;">
+
+            {% for producto in productostres %}
+
+            <div class="col">
+                <div class="card text-center cartitas">
+                    <h4 class="card-title medium parte-arriba" style="margin: 0 10%;"> {{producto.titulo}} </h4>
+                    <img src="{{producto.imagen.url}}" alt="" class="card-img-bottom pad-img">
+                    <a href="{{ producto.get_absolute_url }}" class="btn letra-boton boton">VER MÁS</a>
+                </div>
+            </div>
+
+            {% endfor %}
+            
+        </div>
+    </section>
+
+    
+
+
+    <section class="parte-abajo">
+        <div class="container-fluid cartitas" style="max-width: 1200px;">
+            <ul>
+                <h3 class="parte-arriba"> MÁS PRODUCTOS: </h3>
+
+                {% for producto in productosres %}
+
+                <li class="parte-medio">
+                    <a href="{{ producto.get_absolute_url }}">{{producto.titulo}}:</a> {{producto.descripcion}}
+                </li>
+
+                {% endfor %}
+               
+
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    
+
+    {% endblock %}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS-->
+        <link href="{% static 'Comercio_KAA\css\bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'Comercio_KAA\css\auxi.css' %}" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+        <link rel="shortcut icon" href="{% static 'Comercio_KAA\img\logoicon.png' %}">
+        <title>
+
+            {% block title %} {% endblock %} | Jaguareté Ka'a
+
+        </title>
+            
+    </head>
+        <!--ENCABEZADO-->
+
+    <body>
+        <header>
+            <nav class="navbar navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'Home' %}">
+                        <img src="{% static 'Comercio_KAA\img\logo_p.png' %}" alt="" width="230">
+                    </a>
+
+                    <ul class="nav justify-content-end">
+
+                        {% block btnes %}
+
+                        {% endblock %}
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+            
+        <!--MENU-->
+
+        <nav class="navbar navbar-expand-md navbar-light fondo-barra">
+            <div class="container-fluid">
+                <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="true"
+                    aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav align-items-center mb-1 mb-lg-0">
+                        <li class="nav-item mx-2">
+                          <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'Home' %}">Home</a>
+                        </li>
+                        <li class="nav-item dropdown mx-3">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                id="navbarDropdown" role="button" 
+                                data-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                {% for categoria in categorias %}
+
+                                <li><a class="dropdown-item" href="{{ categoria.get_absolute_url }}">{{categoria.titulo}}</a></li>
+
+                                {% endfor %}
+
+                            </ul>                        
+                        </li>
+                        <li class="nav-item mx-0">
+                            <a class="nav-link {% if request.path == '/acerca_de' %}active{% endif %}" href="{% url 'Acerca de' %}">Acerca de</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="mailto: villalbajoaq@gmail.com?Subject=Contacto&body=He%20aqui%20la%20consulta">Contacto</a>
+                        </li>
+
+                        {% block nvopdto %} {% endblock %}
+                    
+                    </ul>                    
+                    <form class="d-flex mx-3" action="{% url 'Busqueda' %}">                        
+                        <input class="form-control" type="search" placeholder="Buscar" aria-label="Search" name="buscar" value="{{ request.GET.buscar }}">
+                        <button class="btn letra-boton boton" type="submit">Buscar</button>                                                
+                    </form>
+                </div>                
+            </div>            
+        </nav>
+
+        <!--CUERPO-->
+
+        {% block cuerpo %}
+        
+        {% endblock %}                   
+
+        <!--PIE DE PAGINA-->
+
+        <footer>
+            <p>JAGUARETÉ KA'A S.A. © Todos los derechos reservados</p>            
+            <p>Desarrollado por: Joaquín Villalba</p>
+        </footer>
+
+        <!-- JS -->
+
+        <script src="{% static 'Comercio_KAA\js\popper.min.js' %}"></script>
+        <script src="{% static 'Comercio_KAA\js\bootstrap.min.js' %}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,51 @@
+{% extends "Comercio_KAA\layout.html" %}
+{% load static %}
+
+    {% block title %} Búsqueda:  {{ queryset }} {% endblock %}
+
+    {% block btnes %}
+
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                LOGIN
+            </a>
+        </li>
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                REGISTRO
+            </a>
+        </li>
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                CARRITO
+            </a>
+        </li>
+
+    {% endblock %}
+
+
+    {% block cuerpo %}
+
+        <section class="parte-arriba">
+            <div class="container-fluid">
+                <h3> LISTADO DE PRODUCTOS: "... {{queryset}}" </h3>
+            </div>
+        </section>
+
+        <section class="parte-medio">
+            <div class="container-fluid cartitas">
+                <ul>
+
+                    {% for producto in productos %}
+
+                    <li class="parte-medio">
+                        <a href="{{ producto.get_absolute_url }}">{{producto.titulo}}</a>: {{producto.descripcion}}
+                    </li>
+
+                    {% endfor %}
+                
+                </ul>
+            </div>
+        </section>
+
+    {% endblock %}

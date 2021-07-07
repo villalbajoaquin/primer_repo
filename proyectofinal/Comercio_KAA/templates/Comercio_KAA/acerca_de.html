@@ -1,0 +1,45 @@
+{% extends "Comercio_KAA\layout.html" %}
+{% load static %}
+
+    {% block title %} Acerca de {% endblock %}
+
+    {% block btnes %}
+
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                LOGIN
+            </a>
+        </li>
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                REGISTRO
+            </a>
+        </li>
+        <li class="btn boton btn-sm mx-1">
+            <a class="nav-link letra-boton titulos" href="#">
+                CARRITO
+            </a>
+        </li>
+
+    {% endblock %}
+
+    {% block cuerpo %}
+    
+    <div class="acerca-de">
+        <section class="parte-arriba row-cols-1">
+            <h3> ACERCA DE: </h3>
+            <img src="{% static 'Comercio_KAA\img\logo_p.png' %}" alt="" class="img-acerca-de">
+            
+            <p class="parte-arriba">Quiénes Somos</p>
+            <p>Abrimos nuestras puertas por el año 1982. En ese entonces solo disponíamos para la comercialización unos 30 productos. <br>
+                No solo la cantidad de productos fue la que se vió incrementada a lo largo de todos estos años, sino también la experiencia, la atención y el interés de mejorar cada vez más nuestro servicio hacia el cliente. Estos 34 años nos han enseñado y brindado la experiencia necesaria para comprender lo que es realmente importante y marca la diferencia.</p>
+            
+            <p class="parte-arriba">Cuál es Nuestra Diferencia</p>
+            <p>Brindar a cada uno de nuestros clientes la mejor atención posible, escuchando atentamente sus necesidades y asesorandolos de la mejor manera a encontrar el producto que este necesita. Sabiendo que la satisfacción que se recibe al ayudar, no tiene precio. Sobre estas premisas se fundó, se desarrolló y se diferencia Jaguareté Ka'a. Esta construcción de relación de confianza se realiza cada día teniendo en cuenta la importancia en la atención personalizada a nuestros clientes; tomándonos el tiempo necesario para aconsejarlo, centrándonos nuestros servicios en su satisfacción.</p>
+
+            <p class="parte-arriba">Nuestra Misión: Conectar a las personas con la vida sana</p>
+            <p>Nos encontramos continuamente en que la búsqueda de mejorar la atención, buscando los mejores productos, de la más alta calidad y el mejor precio para ofrecer en nuestro comercio. Es por esto que no ofrecemos productos, lo que ofrecemos en Jaguareté Ka'a es un servicio. Hemos creado este espacio para continuar brindándote los mejores productos, acercarte nuestra experiencia, contestar todas tus dudas e intentar hacerte llegar toda la información que necesites. Hoy en día trasladamos toda nuestra experiencia a nuestra web, brindando las mismas ventajas sin importar en donde se encuentre.</p>
+        </section>
+    </div>
+
+    {% endblock %}
